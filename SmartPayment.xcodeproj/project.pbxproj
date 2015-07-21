@@ -14,6 +14,7 @@
 		0B3C41331B5A7F1700D7FEEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C41321B5A7F1700D7FEEF /* Images.xcassets */; };
 		0B3C41361B5A7F1700D7FEEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C41341B5A7F1700D7FEEF /* LaunchScreen.xib */; };
 		0B3C41421B5A7F1700D7FEEF /* SmartPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C41411B5A7F1700D7FEEF /* SmartPaymentTests.m */; };
+		0BA8DFDB1B5A80FE00A6A674 /* VVCardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8DFDA1B5A80FE00A6A674 /* VVCardNumberTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		0B3C413B1B5A7F1700D7FEEF /* SmartPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B3C41401B5A7F1700D7FEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B3C41411B5A7F1700D7FEEF /* SmartPaymentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartPaymentTests.m; sourceTree = "<group>"; };
+		0BA8DFD91B5A80FE00A6A674 /* VVCardNumberTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCardNumberTextField.h; sourceTree = "<group>"; };
+		0BA8DFDA1B5A80FE00A6A674 /* VVCardNumberTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCardNumberTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		0B3C41241B5A7F1700D7FEEF /* SmartPayment */ = {
 			isa = PBXGroup;
 			children = (
+				0BA8DFD81B5A80CC00A6A674 /* Classes */,
 				0B3C41291B5A7F1700D7FEEF /* AppDelegate.h */,
 				0B3C412A1B5A7F1700D7FEEF /* AppDelegate.m */,
 				0B3C412C1B5A7F1700D7FEEF /* ViewController.h */,
@@ -117,6 +121,15 @@
 				0B3C41401B5A7F1700D7FEEF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0BA8DFD81B5A80CC00A6A674 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0BA8DFD91B5A80FE00A6A674 /* VVCardNumberTextField.h */,
+				0BA8DFDA1B5A80FE00A6A674 /* VVCardNumberTextField.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +234,7 @@
 			files = (
 				0B3C412E1B5A7F1700D7FEEF /* ViewController.m in Sources */,
 				0B3C412B1B5A7F1700D7FEEF /* AppDelegate.m in Sources */,
+				0BA8DFDB1B5A80FE00A6A674 /* VVCardNumberTextField.m in Sources */,
 				0B3C41281B5A7F1700D7FEEF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +430,7 @@
 				0B3C41471B5A7F1700D7FEEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B3C41481B5A7F1700D7FEEF /* Build configuration list for PBXNativeTarget "SmartPaymentTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +439,7 @@
 				0B3C414A1B5A7F1700D7FEEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
