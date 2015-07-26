@@ -8,64 +8,11 @@
 
 #import "VVCardNumberTextField.h"
 
-@interface VVCardNumberTextField ()<UITextFieldDelegate>
-
-@property (nonatomic, weak) id<UITextFieldDelegate> replacementDelegate;
-
-@end
-
 @implementation VVCardNumberTextField
 
-
-#pragma mark - Initializations and Setup
-
--(id)init
+-(void)postSetupActions
 {
-    self = [super init];
-    
-    [self setup];
-    
-    return self;
-}
-
--(id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    
-    [self setup];
-
-    return self;
-}
-
--(void)awakeFromNib
-{
-    [self setup];
-}
-
--(void)setup
-{
-    self.delegate       =   self;
     self.keyboardType   =   UIKeyboardTypeNumberPad;
-}
-
-/**
- We override the `setDelegate` method to prevent objects other than `self` from being
- delegates of the current instance.
- When an instance of another class is set as delegate, it is instead assigned to
- `replacementDelegate`, and delegate methods are passed to the replacement delegate
- for all methods except `textField:shouldChangeCharactersInRange:replacementString`.
- */
-
--(void)setDelegate:(id<UITextFieldDelegate>)delegate
-{
-    if(delegate == self)
-    {
-        [super setDelegate:delegate];
-    }
-    else
-    {
-        self.replacementDelegate = delegate;
-    }
 }
 
 -(NSString*)cardNumber
@@ -77,10 +24,9 @@
 
 #pragma mark - UITextField delegate methods
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+-(BOOL)allowChangeOfCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    
-    NSString    *textAfterReplacing     = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    NSString    *textAfterReplacing     = [self.text stringByReplacingCharactersInRange:range withString:string];
     NSInteger   cursorPosition          = range.location + string.length;
     
     NSString *digitsOnlyString = [self removeNonDigits:textAfterReplacing andPreserveCursorPosition:&cursorPosition];
@@ -100,66 +46,7 @@
     return NO;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if(self.replacementDelegate &&
-       [self.replacementDelegate respondsToSelector:@selector(textFieldShouldReturn:)])
-    {
-        return [self.replacementDelegate textFieldShouldReturn:textField];
-    }
-    return YES;
-}
-
--(BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-    if(self.replacementDelegate &&
-       [self.replacementDelegate respondsToSelector:@selector(textFieldShouldEndEditing:)])
-    {
-        return [self.replacementDelegate textFieldShouldEndEditing:textField];
-    }
-    return YES;
-}
-
--(BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    if(self.replacementDelegate &&
-       [self.replacementDelegate respondsToSelector:@selector(textFieldShouldClear:)])
-    {
-        return [self.replacementDelegate textFieldShouldClear:textField];
-    }
-    return YES;
-}
-
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    if(self.replacementDelegate &&
-       [self.replacementDelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
-    {
-        return [self.replacementDelegate textFieldShouldBeginEditing:textField];
-    }
-    return YES;
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    if(self.replacementDelegate &&
-       [self.replacementDelegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
-    {
-        [self.replacementDelegate textFieldDidBeginEditing:textField];
-    }
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    if(self.replacementDelegate &&
-       [self.replacementDelegate respondsToSelector:@selector(textFieldDidEndEditing:)])
-    {
-        [self.replacementDelegate textFieldDidEndEditing:textField];
-    }
-}
-
 #pragma mark - Validation methods
-
 
 -(VVCardIssuer)cardIssuer
 {

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Vinod Vishwanath. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VVValidatedTextField.h"
 
 typedef NS_ENUM(NSUInteger, VVCardIssuer) {
     
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, VVCardIssuer) {
     VVCardIssuerJCB
 };
 
-@interface VVCardNumberTextField : UITextField
+@interface VVCardNumberTextField : VVValidatedTextField
 
 @property(nonatomic) VVCardIssuer   cardIssuer;
 @property(nonatomic) BOOL           isValid;

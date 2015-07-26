@@ -24,9 +24,19 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/YY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0b-kt-2ZQ" customClass="VVCardExpiryTextField">
+                                <rect key="frame" x="177" y="125" width="246" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="pRP-SX-kpc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="z0b-kt-2ZQ" firstAttribute="top" secondItem="mde-Fs-E4n" secondAttribute="bottom" constant="36" id="LRr-se-NSc"/>
+                            <constraint firstAttribute="centerX" secondItem="z0b-kt-2ZQ" secondAttribute="centerX" id="Z6F-77-0hh"/>
                             <constraint firstItem="mde-Fs-E4n" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="39" id="doN-fa-OXf"/>
                             <constraint firstAttribute="centerX" secondItem="mde-Fs-E4n" secondAttribute="centerX" id="wev-XD-Zdt"/>
                         </constraints>

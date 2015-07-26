@@ -14,6 +14,8 @@
 		0B3C41331B5A7F1700D7FEEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C41321B5A7F1700D7FEEF /* Images.xcassets */; };
 		0B3C41361B5A7F1700D7FEEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C41341B5A7F1700D7FEEF /* LaunchScreen.xib */; };
 		0B3C41421B5A7F1700D7FEEF /* SmartPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C41411B5A7F1700D7FEEF /* SmartPaymentTests.m */; };
+		0B6C3DBA1B6015DD0012FDF6 /* VVCardExpiryTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C3DB91B6015DD0012FDF6 /* VVCardExpiryTextField.m */; };
+		0B7EDCA81B64F44B00F41B3E /* VVValidatedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7EDCA71B64F44B00F41B3E /* VVValidatedTextField.m */; };
 		0BA8DFDB1B5A80FE00A6A674 /* VVCardNumberTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8DFDA1B5A80FE00A6A674 /* VVCardNumberTextField.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,10 @@
 		0B3C413B1B5A7F1700D7FEEF /* SmartPaymentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPaymentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B3C41401B5A7F1700D7FEEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B3C41411B5A7F1700D7FEEF /* SmartPaymentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartPaymentTests.m; sourceTree = "<group>"; };
+		0B6C3DB81B6015DD0012FDF6 /* VVCardExpiryTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCardExpiryTextField.h; sourceTree = "<group>"; };
+		0B6C3DB91B6015DD0012FDF6 /* VVCardExpiryTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCardExpiryTextField.m; sourceTree = "<group>"; };
+		0B7EDCA61B64F44B00F41B3E /* VVValidatedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVValidatedTextField.h; sourceTree = "<group>"; };
+		0B7EDCA71B64F44B00F41B3E /* VVValidatedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVValidatedTextField.m; sourceTree = "<group>"; };
 		0BA8DFD91B5A80FE00A6A674 /* VVCardNumberTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCardNumberTextField.h; sourceTree = "<group>"; };
 		0BA8DFDA1B5A80FE00A6A674 /* VVCardNumberTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCardNumberTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +134,10 @@
 			children = (
 				0BA8DFD91B5A80FE00A6A674 /* VVCardNumberTextField.h */,
 				0BA8DFDA1B5A80FE00A6A674 /* VVCardNumberTextField.m */,
+				0B6C3DB81B6015DD0012FDF6 /* VVCardExpiryTextField.h */,
+				0B6C3DB91B6015DD0012FDF6 /* VVCardExpiryTextField.m */,
+				0B7EDCA61B64F44B00F41B3E /* VVValidatedTextField.h */,
+				0B7EDCA71B64F44B00F41B3E /* VVValidatedTextField.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -232,9 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B6C3DBA1B6015DD0012FDF6 /* VVCardExpiryTextField.m in Sources */,
 				0B3C412E1B5A7F1700D7FEEF /* ViewController.m in Sources */,
 				0B3C412B1B5A7F1700D7FEEF /* AppDelegate.m in Sources */,
 				0BA8DFDB1B5A80FE00A6A674 /* VVCardNumberTextField.m in Sources */,
+				0B7EDCA81B64F44B00F41B3E /* VVValidatedTextField.m in Sources */,
 				0B3C41281B5A7F1700D7FEEF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
