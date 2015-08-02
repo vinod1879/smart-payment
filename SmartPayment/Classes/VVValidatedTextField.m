@@ -48,6 +48,12 @@
 -(void)setup
 {
     self.delegate       =   self;
+    [self postSetupActions];
+}
+
+-(BOOL)isValid
+{
+    return [self validateForText:self.text];
 }
 
 /**
@@ -79,14 +85,29 @@
 
 -(BOOL)allowChangeOfCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return NO;
+    NSString *originalText = [self text];
+    NSString *newText = [originalText stringByReplacingCharactersInRange:range withString:string];
+    
+    NSInteger limit     = [self limitOnCharacters];
+    NSString *subRegex  = [self regexOfAllowedCharacters];
+    
+    NSPredicate *_pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", subRegex];
+    
+    BOOL ac =  ([_pred evaluateWithObject:newText] && [newText length] <= limit);
+    
+    return ac;
 }
 
 #pragma mark - UITextField delegate methods
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return [self allowChangeOfCharactersInRange:range replacementString:string];
+    BOOL shouldChange = [self allowChangeOfCharactersInRange:range replacementString:string];
+    
+    if(shouldChange)
+        [self sendActionsForControlEvents:UIControlEventEditingChanged];
+    
+    return shouldChange;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -145,6 +166,90 @@
     {
         [self.replacementDelegate textFieldDidEndEditing:textField];
     }
+}
+
+#pragma mark - Validation Rules
+
+-(BOOL)validateForText:(NSString*)text
+{
+    NSString *regex = [self regexOfValidInput];
+    
+    NSPredicate *_pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    BOOL isValid = [_pred evaluateWithObject:text];
+    
+    return isValid;
+}
+
+-(NSUInteger)limitOnCharacters
+{
+    NSUInteger limit = 0;
+    
+    switch (self.inputType) {
+        case VVInputTypeEmail:
+            limit = 100;
+            break;
+        
+        case VVInputTypeMobileNumber:
+            limit = 10;
+            break;
+            
+        case VVInputTypePassword:
+            limit = 20;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return limit;
+}
+
+-(NSString*)regexOfAllowedCharacters
+{
+    NSString *subRegex = @"";
+    
+    switch (self.inputType) {
+        case VVInputTypeEmail:
+            subRegex = @"[a-zA-Z0-9_@.-]*";
+            break;
+            
+        case VVInputTypeMobileNumber:
+            subRegex = @"[0-9]*";
+            break;
+            
+        case VVInputTypePassword:
+            subRegex = @"[^\\s]*";
+            break;
+            
+        default:
+            break;
+    }
+ 
+    return subRegex;
+}
+
+-(NSString*)regexOfValidInput
+{
+    NSString *subRegex = @"";
+    
+    switch (self.inputType) {
+        case VVInputTypeEmail:
+            subRegex = @"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
+            break;
+            
+        case VVInputTypeMobileNumber:
+            subRegex = @"^[0-9]{10}$";
+            break;
+            
+        case VVInputTypePassword:
+            subRegex = @"^(?=.*?([A-Za-z]))(?=.*?[0-9])(?=.*?[\\{\\}\\[\\]\\(\\)#?!@$%^&*-+=|.:;,><?~_!]).{6,16}$";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return subRegex;
 }
 
 @end

@@ -32,17 +32,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-dq-joH" customClass="VVValidatedTextField">
+                                <rect key="frame" x="177" y="185" width="246" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="8vY-BA-Msk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z0b-kt-2ZQ" firstAttribute="top" secondItem="mde-Fs-E4n" secondAttribute="bottom" constant="36" id="LRr-se-NSc"/>
                             <constraint firstAttribute="centerX" secondItem="z0b-kt-2ZQ" secondAttribute="centerX" id="Z6F-77-0hh"/>
+                            <constraint firstAttribute="centerX" secondItem="FtI-dq-joH" secondAttribute="centerX" id="ZS1-ze-lZS"/>
                             <constraint firstItem="mde-Fs-E4n" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="39" id="doN-fa-OXf"/>
+                            <constraint firstItem="FtI-dq-joH" firstAttribute="top" secondItem="z0b-kt-2ZQ" secondAttribute="bottom" constant="30" id="wDh-53-Fdl"/>
                             <constraint firstAttribute="centerX" secondItem="mde-Fs-E4n" secondAttribute="centerX" id="wev-XD-Zdt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardNumberField" destination="mde-Fs-E4n" id="G8A-e1-wj0"/>
+                        <outlet property="email" destination="FtI-dq-joH" id="AE6-Qs-qOq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

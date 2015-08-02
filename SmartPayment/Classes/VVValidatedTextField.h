@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, VVInputType) {
+    
+    VVInputTypeUnknown,
+    VVInputTypeEmail,
+    VVInputTypeMobileNumber,
+    VVInputTypePassword
+};
+
 @interface VVValidatedTextField : UITextField
 
+@property(nonatomic) VVInputType inputType;
 
 /**
  The implementation of method returns 'NO' always.
@@ -23,5 +32,10 @@
  Overriding subclasses can add any customizations here.
  */
 -(void)postSetupActions;
+
+/**
+ Returns whether the text is valid or not
+ */
+-(BOOL)isValid;
 
 @end

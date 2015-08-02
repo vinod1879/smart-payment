@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property IBOutlet VVCardNumberTextField *cardNumberField;
+@property IBOutlet VVValidatedTextField *email;
 
 @end
 
@@ -20,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.cardNumberField addTarget:self
+    [self.email setInputType:VVInputTypeEmail];
+    [self.email addTarget:self
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
 }
@@ -32,7 +34,7 @@
 
 -(void)textFieldDidChange:(id)sender
 {
-    if([self.cardNumberField isValid])
+    if([self.email isValid])
     {
         UIAlertView *av = [[UIAlertView alloc]
                            initWithTitle:@"Valid"
